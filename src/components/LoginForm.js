@@ -20,6 +20,7 @@ const LoginForm = () => {
               Sign In
             </Button>
           </div>
+          <p className="sign-up pt-4">New to Netlix? Sign Up Now</p>
         </Form>
       </div>
     </div>
