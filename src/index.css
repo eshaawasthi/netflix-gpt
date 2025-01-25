@@ -40,3 +40,7 @@ body {
   background-color: #e50914;
   border: 1px solid #e50914;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
