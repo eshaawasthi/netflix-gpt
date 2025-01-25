@@ -11,3 +11,7 @@
   align-items: center;
   height: 100vh;
 }
+
+.loginForm-wrapper div {
+  background-color: rgba(0, 0, 0, 0.7);
+}

@@ -4,7 +4,7 @@ import { BG_URL } from "../utils/constants";
 
 const Login = () => {
   return (
-    <div className="login-wrapper">
+    <div className="container-fluid login-wrapper">
       <Header />
       <LoginForm />
     </div>
