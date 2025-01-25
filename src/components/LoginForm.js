@@ -1,12 +1,42 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useState } from "react";
+import { useState, useRef } from "react";
+
+import { checkValidData } from "../utils/validate";
 
 const LoginForm = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  let email = useRef(null);
+  let password = useRef(null);
+  let name = useRef(null);
 
   const toggleSignInForm = () => {
+    const fields = [name, password, email];
+
+    fields.forEach((item) => {
+      if (item?.current?.value) {
+        item.current.value = "";
+      }
+    });
+
+    setErrorMessage(null);
     setIsSignInForm(!isSignInForm);
+  };
+
+  const handleLoginFormData = (e) => {
+    e.preventDefault();
+
+    const error = isSignInForm
+      ? checkValidData(email?.current.value, password?.current.value)
+      : checkValidData(
+          email?.current.value,
+          password?.current.value,
+          name.current.value
+        );
+
+    setErrorMessage(error);
   };
 
   return (
@@ -16,19 +46,41 @@ const LoginForm = () => {
           <h2 className="mb-4">{isSignInForm ? "Sign In" : "Sign Up"}</h2>
           {!isSignInForm && (
             <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Control type="name" placeholder="Full Name" />
+              <Form.Control
+                ref={name}
+                type="name"
+                placeholder="Full Name"
+                required
+              />
             </Form.Group>
           )}
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control type="email" placeholder="Email or phone number" />
+            <Form.Control
+              ref={email}
+              type="email"
+              placeholder="Email or phone number"
+              required
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              ref={password}
+              type="password"
+              placeholder="Password"
+              required
+            />
           </Form.Group>
 
+          <p className="text-danger font-weight-bold">{errorMessage}</p>
+
           <div className="d-grid gap-2">
-            <Button className="mt-4" variant="danger" type="submit">
+            <Button
+              className="mt-4"
+              variant="danger"
+              type="submit"
+              onClick={(e) => handleLoginFormData(e)}
+            >
               {isSignInForm ? "Sign In" : "Sign Up"}
             </Button>
           </div>

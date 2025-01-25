@@ -3,7 +3,11 @@
 - Create React App
 - Configured Bootstrap
 - Header
+- Routing of App
 - Login Form
+- Sign up Form
+- Form Validation
+- useRef Hook
 
 # Features
 

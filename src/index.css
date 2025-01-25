@@ -25,7 +25,8 @@ body {
 }
 
 .form-wrapper input {
-  background-color: transparent;
+  background-color: transparent!important;
+  color: #fff!important;
   border: none;
   padding: 15px;
   border: 1px solid #5f5e5e;
