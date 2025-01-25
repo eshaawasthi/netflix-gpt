@@ -5,8 +5,10 @@ import { BG_URL } from "../utils/constants";
 const Login = () => {
   return (
     <div className="login-wrapper">
-      <Header />
-      <LoginForm />
+      <div className="container">
+        <Header />
+        <LoginForm />
+      </div>
     </div>
   );
 };

@@ -16,7 +16,11 @@
   - Tailer in Background
   - Title and Description
   - MovieSuggestions
-    - MovieLists \* N
+    - MovieLists x N
 - Netflix GPT
   - Search Bar
   - Movie Suggestions
+
+# Suggestions
+
+- Use Formik forms in react to make your life easy

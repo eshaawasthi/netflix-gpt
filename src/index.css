@@ -1,6 +1,10 @@
+body {
+  font-family: "Poppins", serif !important;
+}
+
 .login-wrapper {
   background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/fc164b4b-f085-44ee-bb7f-ec7df8539eff/d23a1608-7d90-4da1-93d6-bae2fe60a69b/IN-en-20230814-popsignuptwoweeks-perspective_alpha_website_large.jpg);
-  opacity: 0.8;
+  background-size: cover;
   height: 100vh;
   width: 100vw;
 }
@@ -10,4 +14,33 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.loginForm-wrapper > div {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.header-wrapper {
+  background-color: #211d1db8;
+}
+
+.form-wrapper input {
+  background-color: transparent;
+  border: none;
+  padding: 15px;
+  border: 1px solid #5f5e5e;
+}
+
+.form-wrapper input::placeholder {
+  color: #c4c1c1;
+  font-weight: 400;
+}
+
+.form-wrapper button {
+  background-color: #e50914;
+  border: 1px solid #e50914;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
