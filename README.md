@@ -28,11 +28,7 @@
   - Tailer in Background
   - Title and Description
   - MovieSuggestions
-    <<<<<<< HEAD - MovieLists \* N
-- Netflix GPT
-  - Search Bar
-  - # Movie Suggestions
-        - MovieLists x N
+  - MovieLists \* N
 - Netflix GPT
   - Search Bar
   - Movie Suggestions
