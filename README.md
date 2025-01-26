@@ -40,4 +40,8 @@
 # Suggestions
 
 - Use Formik forms in react to make your life easy
-  > > > > > > > 9b7e043440fb2116960da45aa7901f40c8e6de7a
+
+# Deployment
+
+- Deployed on Firebase
+- firebase deploy
