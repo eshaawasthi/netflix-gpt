@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -44,7 +45,7 @@ const LoginForm = () => {
       if (user) {
         const { uid, email, displayName } = user;
         // User is signed in
-        dispatch(addUser({ uid, email, displayName }));
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
         navigate("/browse");
       } else {
         // User is signed out
@@ -74,7 +75,15 @@ const LoginForm = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          authStateChanged();
+          updateProfile(auth.currentUser, {
+            displayName: name.current.value,
+          })
+            .then(() => {
+              authStateChanged();
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
