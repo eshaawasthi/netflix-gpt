@@ -21,11 +21,16 @@ body {
 }
 
 .header-wrapper {
-  background-image: linear-gradient(180deg, #161414, #06060600) !important;
   width: 100%;
+  background-image: linear-gradient(180deg, #161414, #06060600) !important;
+  justify-content: space-between;
 }
 
-.header-wrapper img {
+.width-6 {
+  width: 6% !important;
+}
+
+.header-wrapper img:first-child {
   width: 150px;
   height: 70px;
 }
