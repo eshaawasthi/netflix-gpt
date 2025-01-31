@@ -6,26 +6,17 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
-import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
-
-import { addUser, removeUser } from "../utils/userSlice";
 import { checkValidData } from "../utils/validate";
 
 const LoginForm = () => {
-  const dispatch = useDispatch();
-
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
   let email = useRef(null);
   let password = useRef(null);
   let name = useRef(null);
-
-  const navigate = useNavigate();
 
   const toggleSignInForm = () => {
     const fields = [name, password, email];
@@ -40,20 +31,6 @@ const LoginForm = () => {
     setIsSignInForm(!isSignInForm);
   };
 
-  const authStateChanged = () => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, email, displayName } = user;
-        // User is signed in
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-        navigate("/browse");
-      } else {
-        // User is signed out
-        dispatch(removeUser());
-        navigate("/");
-      }
-    });
-  };
   const handleLoginFormData = (e) => {
     e.preventDefault();
     const errMessage = isSignInForm
@@ -79,7 +56,7 @@ const LoginForm = () => {
             displayName: name.current.value,
           })
             .then(() => {
-              authStateChanged();
+              //authStateChanged();
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -99,7 +76,6 @@ const LoginForm = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          authStateChanged();
         })
         .catch((error) => {
           const errorCode = error.code;
