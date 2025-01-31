@@ -15,7 +15,9 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    authStateChanged();
+    const unsubscribe = authStateChanged();
+
+    return () => unsubscribe();
   }, []);
 
   const authStateChanged = () => {
